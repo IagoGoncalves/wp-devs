@@ -9,10 +9,16 @@
     <div id="id" class="site">
         <header>
             <section class="top-bar">
-                <div class="logo">a</div>
-                <div class="searchbox">b</div>
+                <div class="container">
+                    <div class="logo">a</div>
+                    <div class="searchbox">b</div>
+                </div>
             </section>
             <section class="menu-area">
-                <nav class="main-menu">c</nav>
+                <div class="container">
+                    <nav class="main-menu">
+                        <?php wp_nav_menu(array('theme_location' => 'wp_devs_main_menu', 'depth' => 2)); ?>
+                    </nav>
+                </div>
             </section>
         </header>
