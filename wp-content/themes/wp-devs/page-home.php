@@ -35,22 +35,26 @@
                         <?php 
                             $args = array(
                                 'post_type' => 'post',
-                                'post_per_page' => 3,
-                                'category__in'  => array(8, 9, 10),
+                                'post_per_page' => 5,
+                                'category__in'  => array(4, 9, 10),
                                 'category__not_in' => array(1)
                             );
                             $postlist = new WP_Query($args);
 
                             if($postlist->have_posts()):
                                 while($postlist->have_posts()) : $postlist->the_post(); ?>
-                                    <article>
-                                        <h2><?php the_title() ?></h2>
+                                    <article class="latest-news">
+                                        <a href="<?php the_permalink();?>"><?php the_post_thumbnail('large') ?></a>
+                                        <h3><a href="<?php the_permalink();?>"><?php the_title() ?></a></h3>
                                         <div class="meta-info">
-                                            <p>Posted in <?php echo get_the_date() ?> by <?php the_author_posts_link() ?></p>
-                                            <p>Categories: <?php the_category( ' ' ) ?></p>
-                                            <p>Tags: <?php the_tags('', ', ') ?></p>
+                                            <p>
+                                                by <span><?php the_author_posts_link() ?></span>
+                                                Categories: <span><?php the_category( ' ' ) ?></span>
+                                                Tags: <?php the_tags('', ', ') ?>
+                                            </p>
+                                            <p><span><?php echo get_the_date() ?></span></p>
                                         </div>
-                                        <?php the_content(); ?>
+                                        <?php the_excerpt(); ?>
                                     </article>
                                 <?php endwhile;
                                 wp_reset_postdata();
