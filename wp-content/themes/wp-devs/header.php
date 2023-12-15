@@ -19,7 +19,7 @@
                             <?php }
                         ?>
                     </div>
-                    <div class="searchbox">b</div>
+                    <div class="searchbox"><?php get_search_form() ?></div>
                 </div>
             </section>
             <section class="menu-area">
