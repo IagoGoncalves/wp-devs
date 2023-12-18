@@ -6,8 +6,8 @@
  * and the comment form.
  *
  * @package WordPress
- * @subpackage Wp Devs
- * @since Twenty Sixteen 1.0
+ * @subpackage WP Devs
+ * @since WP Devs 1.0
  */
 
 /*
