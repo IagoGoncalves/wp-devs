@@ -3,12 +3,12 @@
         <h2><a href="<?php the_permalink()?>"><?php the_title() ?></a></h2>
         <?php if('post' == get_post_type()): ?>
         <div class="meta-info">
-            <p>Posted in <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?></p>
+            <p><?php __e('Posted in', 'wp-devs') ?> <?php echo get_the_date(); ?> <?php __e('by', 'wp-devs') ?> <?php the_author_posts_link(); ?></p>
             <?php if(has_category()): ?>
-                <p>Categories: <?php the_category( ' ' ) ?></p>
+                <p><?php __e('Categories', 'wp-devs') ?>: <?php the_category( ' ' ) ?></p>
             <?php endif ?>
             <?php if(has_tag()): ?>
-                <p>Tags: <?php the_tags('', ', ') ?></p>
+                <p><?php __e('Tags', 'wp-devs') ?>: <?php the_tags('', ', ') ?></p>
             <?php endif ?>
         </div>
         <?php endif; ?>

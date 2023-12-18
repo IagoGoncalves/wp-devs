@@ -18,7 +18,7 @@ Template Name: General Template
                                     </article>
                                 <?php endwhile;
                             else: ?>
-                                <p>Nothing yet to be displayed!</p>
+                                <p><?php __e('Nothing yet to be displayed','wp-devs') ?>!</p>
                         <?php endif; ?>
                     </div>
                 </div>

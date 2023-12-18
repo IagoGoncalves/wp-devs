@@ -2,7 +2,7 @@
     <div id="primary">
         <div id="main">
             <div class="container">
-                <h1>Search results for: <?php echo get_search_query() ?></h1>
+                <h1><?php __e('Search results for','wp-dev') ?>: <?php echo get_search_query() ?></h1>
                 <?php 
                     get_search_form();
                     while(have_posts()):
