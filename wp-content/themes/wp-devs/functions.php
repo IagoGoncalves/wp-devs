@@ -87,6 +87,11 @@ function wpdevs_sidebars(){
     );
 }
 
+add_action('init', 'wpdevs_register_post_type');
+function wpdevs_register_post_type(){
+    require get_template_directory() . '/custom-post.php';
+}
+
 if ( ! function_exists( 'wp_body_open' ) ){
 	function wp_body_open() {
 		do_action( 'wp_body_open' );

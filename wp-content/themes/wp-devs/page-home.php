@@ -15,12 +15,36 @@
                             <div class="container">
                                 <div class="hero-items">
                                     <h1><?php echo esc_html($hero_title); ?></h1>
-                                    <p><?php echo nl2br( esc_html($hero_subtitle) )); ?></p>
+                                    <p><?php echo nl2br( esc_html($hero_subtitle) ); ?></p>
                                     <a href="<?php echo esc_url($hero_button_link) ?>"><?php echo esc_html($hero_button_text); ?></a>
                                 </div>
                             </div>
                         </div>
                     </section>
+
+<!-- -----------------------------Teste de Post com Field------------------------------------------------------------------- -->
+                    <?php $custom_post_args = array(
+                            'post_type' => 'custom post', // Nome do seu tipo de post personalizado
+                            'posts_per_page' => -1, // -1 para mostrar todos os posts
+                        );
+
+                        $custom_post_query = new WP_Query($custom_post_args);
+                        if ($custom_post_query->have_posts()) :
+                            while ($custom_post_query->have_posts()) : $custom_post_query->the_post();
+                                $post_title = get_the_title();
+                                $post_content = get_the_content();
+                                $post_thumbnail = get_the_post_thumbnail();
+                                echo '<h2>' . $post_title . '</h2>';
+                                echo '<div>' . $post_content . '</div>';
+                                echo '<div>' . $post_thumbnail . '</div>';
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                            echo 'Nenhum post encontrado.';
+                        endif;
+                        ?>
+<!-- -----------------------------Fim do Teste de Post com Field------------------------------------------------------------------- -->
+
                     <section class="services">
                         <h2><?php esc_html_e( 'Services', 'wp-devs' ) ?></h2>
                         <div class="container">

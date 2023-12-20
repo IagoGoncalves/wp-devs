@@ -26,7 +26,6 @@
 
             endwhile;
             ?>
-
         </div>
     </div>
 </div>
